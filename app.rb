@@ -4,12 +4,7 @@ class App < Sinatra::Base
 
   configure do
       enable :sessions
-      set :session_secret, "pw"
-  end
-
-  get '/auth' do
-    session["item"] = (params[:item])
-    @session = session
+      set :session_secret, 'pw'
   end
 
   get '/' do
@@ -17,6 +12,9 @@ class App < Sinatra::Base
   end
 
   post '/checkout' do
+    session[:item] = params[:item]
+    @session = session
+
     @items = Checkout.new(item: params[:checkout][:item])
     
     erb :'checkout'
