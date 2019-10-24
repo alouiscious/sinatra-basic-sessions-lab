@@ -1,10 +1,10 @@
 class Checkout
-  attr_reader :name, :total
+  attr_reader :user, :total
 
   CHECKOUT = []
   def initialize(params)
-    @name = params[:name]
-    @price = params[:price]
+    @name = params[:user]
+    @total = params[:total]
 
     CHECKOUT << self
   end

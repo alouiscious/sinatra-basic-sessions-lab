@@ -4,7 +4,7 @@ class Item
   @@items = []
 
   def initialize(params)
-    @name = params[:name]
+    @item = params[:item]
     @price = params[:price]
 
     @@items << self
